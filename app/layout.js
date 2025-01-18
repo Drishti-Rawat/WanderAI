@@ -1,5 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/shared/Header";
+import { Suspense } from "react";
+import { Toaster } from "@/components/ui/sonner"
+import { ClerkProvider } from "@clerk/nextjs";
+import Provider from "./provider";
+import Footer from "@/components/shared/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,12 +24,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <ClerkProvider    afterSignOutUrl="/">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Header/>
+        <Suspense fallback={<div>Loading toaster...</div>}>
+        <Toaster position="bottom-right" />
+        </Suspense>
+        <Provider>
         {children}
+      </Provider>
+      <Footer/>
       </body>
     </html>
+    </ClerkProvider>
   );
 }

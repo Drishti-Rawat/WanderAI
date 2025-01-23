@@ -8,7 +8,7 @@ import { TreePine } from 'lucide-react'
 
 const Header = () => {
   return (
-    <div className='p-3 shadow-sm '>
+    <div className='p-3 shadow-sm border-b border-b-gray-200 '>
         <nav className='flex items-center justify-between  px-4 max-w-7xl mx-auto'>
      <h2 className='text-3xl md:text-4xl  font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text tracking-tighter'>wanderai</h2>
 

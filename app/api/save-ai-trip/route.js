@@ -1,4 +1,4 @@
-// /app/api/verify-user/route.js
+/ /app/api/verify-user/route.js
 import { db } from "@/service/firebaseConfig"; 
 import { doc, setDoc } from "firebase/firestore";
 import { NextResponse } from "next/server";
